@@ -122,6 +122,7 @@ BOOL C数据库系统Dlg::OnInitDialog()
 
 	//Table mTable;
 	//mTable.getColumns("test.txt");
+	printf("dsdsd");
 
 
 
