@@ -92,50 +92,51 @@ std::list<Table::Column> Table::getColumns(const char *tableName){
     {
         printf("error!");
     }
-    
-    int count = 0;
-    int tmpeColumnNum = 0;
-    while (!feof(fp))
-    {
-        fgets(StrLine,1024,fp);
+	else
+	{
+		int count = 0;
+		int tmpeColumnNum = 0;
+		while (fgets(StrLine,1024,fp))
+		{
+			fgets(StrLine,1024,fp);
+			switch (count) {
+				case 0:
+					tempColumn.order=atoi(StrLine);
+					break;
+				case 1:
 
-        
-        switch (count) {
-            case 0:
-                tempColumn.order=atoi(StrLine);
-                break;
-            case 1:
-                //strncpy(tempColumn.name, StrLine, 20);
-                strncpy(tempColumn.name, StrLine, strlen(StrLine)-1);
+					strncpy(tempColumn.name, StrLine, strlen(StrLine)-1);
                 
-                break;
+					break;
                 
-            case 2:
-                tempColumn.type=atoi(StrLine);
-                break;
+				case 2:
+					tempColumn.type=atoi(StrLine);
+					break;
                 
-            case 3:
-                tempColumn.param=atoi(StrLine);
-                break;
+				case 3:
+					tempColumn.param=atoi(StrLine);
+					break;
                 
-            case 4:
-                strncpy(tempColumn.mtime, StrLine, strlen(StrLine)-1);
-                break;
+				case 4:
+					strncpy(tempColumn.mtime, StrLine, strlen(StrLine)-1);
+					break;
                 
-            case 5:
-                tempColumn.integrities=atoi(StrLine);
-                mylist.push_back(tempColumn);
-                tmpeColumnNum++;
-                count=-1;
-                break;
-            default:
-                break;
-        }
-        count++;
+				case 5:
+					tempColumn.integrities=atoi(StrLine);
+					mylist.push_back(tempColumn);
+					tmpeColumnNum++;
+					count=-1;
+					break;
+				default:
+					break;
+			}
+			count++;
     }
     
     fclose(fp);
     cNum=tmpeColumnNum;
+	}
+   
     return mylist;
 
 }

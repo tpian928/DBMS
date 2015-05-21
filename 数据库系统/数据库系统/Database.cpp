@@ -140,13 +140,22 @@ list<string> Database::getTables(const char *dbname){
         printf("error!");
     }
     
-    while (!feof(fp))
-    {
-        fgets(StrLine,1024,fp);
-        string str(StrLine);
-        mylist.push_back(str);
-    }
-    fclose(fp);
+	else{
+		string temp="";
+		while (!feof(fp))
+		{
+			fgets(StrLine,1024,fp);
+			string str(StrLine);
+			if (str!=temp)
+			{
+				mylist.push_back(str);
+				temp=str;
+			}
+
+		}
+		fclose(fp);
+	}
+    
     
     
     return mylist;

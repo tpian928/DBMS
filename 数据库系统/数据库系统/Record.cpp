@@ -61,17 +61,22 @@ StringList Record::getLines(){
     {
         printf("error!");
     }
+	else
+	{
+		string temp;
+		while (!feof(fp))
+		{
+			fgets(StrLine,1024,fp);  //读取一行
+			string str(StrLine);
+			if (str!="\n"&&str!=temp) {
+				returnLsit.push_back(str);
+				temp=str;
+			}
+		}
+		fclose(fp);//关闭文件
+	}
     
-    while (!feof(fp))
-    {
-        fgets(StrLine,1024,fp);  //读取一行
-        string str(StrLine);
-        if (str!="\n") {
-            returnLsit.push_back(str);
-        }
-        
-    }
-    fclose(fp);//关闭文件
+
     
     return returnLsit;
 }

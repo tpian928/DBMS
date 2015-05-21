@@ -10,6 +10,7 @@
 #include "DatabaseDialog1.h"
 #include <vector>
 #include <iostream>
+#include "Table.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -119,6 +120,8 @@ BOOL C数据库系统Dlg::OnInitDialog()
 		HTREEITEM db=Tree.InsertItem(tab2,0,0);
     }
 
+	Table mTable;
+	mTable.getColumns("test.txt");
 
 
 
