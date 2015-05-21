@@ -120,8 +120,8 @@ BOOL C数据库系统Dlg::OnInitDialog()
 		HTREEITEM db=Tree.InsertItem(tab2,0,0);
     }
 
-	Table mTable;
-	mTable.getColumns("test.txt");
+	//Table mTable;
+	//mTable.getColumns("test.txt");
 
 
 

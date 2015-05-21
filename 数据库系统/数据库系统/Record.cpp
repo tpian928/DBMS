@@ -63,14 +63,13 @@ StringList Record::getLines(){
     }
 	else
 	{
-		string temp;
-		while (fgets(StrLine,1024,fp)!="\n")
+
+		while (fgets(StrLine,1024,fp))
 		{
 
 			string str(StrLine);
-			if (str!="\n"&&str!=temp) {
+			if (str!="\n") {
 				returnLsit.push_back(str);
-				temp=str;
 			}
 		}
 		fclose(fp);//╧ь╠унд╪Ч

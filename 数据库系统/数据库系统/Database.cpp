@@ -54,17 +54,16 @@ list<string> Database::getDatabases(){
     }
 	else
 	{
-		string temp="";
-		while (!feof(fp))
+
+		char StrLine[1024];
+		while (fgets(StrLine,1024,fp))
 			{
-				char StrLine[1024];
-				fgets(StrLine,1024,fp);
 				string str(StrLine);
-				if (str!=temp)
+				if (str!="\n")
 				{
 				mylist.push_back(str);
-				temp=str;
 				}
+
 			}
 			fclose(fp);
 	}
@@ -141,17 +140,14 @@ list<string> Database::getTables(const char *dbname){
     }
     
 	else{
-		string temp="";
-		while (!feof(fp))
-		{
-			fgets(StrLine,1024,fp);
-			string str(StrLine);
-			if (str!=temp)
-			{
-				mylist.push_back(str);
-				temp=str;
-			}
 
+		while (fgets(StrLine,1024,fp))
+		{
+			string str(StrLine);
+			if (str!="\n")
+			{
+			mylist.push_back(str);
+			}
 		}
 		fclose(fp);
 	}
