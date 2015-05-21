@@ -59,11 +59,7 @@ public:
     //得到该表的Columns数组
     //tableName为表文件路径，如student.tdf(student为表名)
     std::list<Column> getColumns(const char *tableName);
-    
-    //得到记录
-    //tableName为表文件路径，如student.tdf(student为表名)
-    void getRecord(const char *tableName);
-    
+        
     //删除表
     //tableName为表文件路径，如student.tdf(student为表名)
     void deleteTable(const char *tableName);

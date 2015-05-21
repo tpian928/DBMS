@@ -64,9 +64,9 @@ StringList Record::getLines(){
 	else
 	{
 		string temp;
-		while (!feof(fp))
+		while (fgets(StrLine,1024,fp)!="\n")
 		{
-			fgets(StrLine,1024,fp);  //∂¡»°“ª––
+
 			string str(StrLine);
 			if (str!="\n"&&str!=temp) {
 				returnLsit.push_back(str);

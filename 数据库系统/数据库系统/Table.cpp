@@ -98,7 +98,7 @@ std::list<Table::Column> Table::getColumns(const char *tableName){
 		int tmpeColumnNum = 0;
 		while (fgets(StrLine,1024,fp))
 		{
-			fgets(StrLine,1024,fp);
+			
 			switch (count) {
 				case 0:
 					tempColumn.order=atoi(StrLine);
